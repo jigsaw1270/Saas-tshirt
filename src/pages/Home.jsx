@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSnapshot } from 'valtio';
-
+import vulkan from '../assets/vulkan.png'
 import state from '../store';
 import { CustomButton } from '../Components';
 import {
@@ -9,6 +9,9 @@ import {
   headTextAnimation,
   slideAnimation
 } from '../config/motion';
+// import SliderSection from '../Components/SliderSection'
+
+
 
 const Home = () => {
     const snap = useSnapshot(state);
@@ -19,16 +22,19 @@ const Home = () => {
             snap.intro && (
               <motion.section className='home' {
                 ...slideAnimation('left')}>
+               
                 <motion.header {...slideAnimation('down')}>
-                   <img src="./threejs.png" alt="logo" className='object-contain w-8 h-8' /> 
+               
+                   <img src={vulkan} alt="logo" className='w-3/4 ml-0 ' /> 
+                   <h5 className='font-mono text-xs'>Making cool stuff since 20th century</h5>
                 </motion.header>
 
                 <motion.div className='home-content' {
                     ...headContainerAnimation
                 }>
                 <motion.div {...headTextAnimation}>
-                <h1 className='head-text'>
-                    LET'S <br className='"xl:block hidden' /> DO IT
+                <h1 className='head-text '>
+                     LET'S <br className='"xl:block hidden' /> DO IT
                 </h1>
 
                 </motion.div>
@@ -43,11 +49,14 @@ const Home = () => {
                 </motion.div>
 
                 </motion.div>
+               
 
               </motion.section>  
             )
         }
+       
        </AnimatePresence>
+      
     );
 };
 
